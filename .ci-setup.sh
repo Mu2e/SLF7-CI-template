@@ -1,9 +1,10 @@
-# to be completed!
-yum -y #... install necessary RPMs for mu2e software environment ...
 
-# UPS setup script!
-#source /cvmfs...
+yum -y install make base-devel glibc-devel freetype-devel
+
+source /cvmfs/fermilab.opensciencegrid.org/products/common/etc/setups
 
 setup mu2e
+
+# build your software
 
 # run your tests
