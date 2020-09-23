@@ -1,0 +1,16 @@
+language: cpp
+
+jobs:
+    include:
+        - os: linux
+          dist: xenial
+          sudo: required
+          services:
+            - docker 
+
+before_install:
+    - source .travis-before-install.sh
+
+script:
+    - cd .. && docker run --name CIcontainer -v /cvmfs:/cvmfs:ro,shared -v "$(pwd)"/REPO_FOLDER_NAME:/REPO_FOLDER_NAME -it -d centos:7
+    - docker exec -ti CIcontainer /bin/bash -c "cd /REPO_FOLDER_NAME && source .ci-setup.sh"
